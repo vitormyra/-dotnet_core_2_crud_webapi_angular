@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col s8 offset-s2">
+      <div class="card">
+        <div class="sm-jumbotron center-align">
+          <h2>Cadastrar Usuário</h2>
+        </div>
+        <form class="col s12 white" #usuarioForm="ngForm" (ngSubmit)="onSubmit(usuarioForm)" autocomplete="off">
+          <div class="row">
+            <div class="input-field col s6">
+              <input type="text" class="validate" name="nome" [(ngModel)]="usuario.Nome" #usuario="ngModel" required>
+              <label data-error="Campo obrigatório!">Nome</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="email" class="validate" name="email" [(ngModel)]="usuario.Email" #email="ngModel" required [pattern]="emailPattern">
+                <label data-error="Email inválido">Email</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="password" class="validate" name="senha" [(ngModel)]="usuario.Senha" #senha="ngModel" required minlength="3">
+                <label [attr.data-error] = "senha.errors != null?(senha.errors.required? 'Campo Obrigatório' : 'Minimo 3 caracteres'):''">Senha</label>
+            </div>          
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <button class="btn-large btn-submit" [disabled]= "!usuarioForm.valid" type="submit">Cadastrar</button>
+            </div>
+          </div> 
+        </form>
+      </div>
+    </div>
+  </div>

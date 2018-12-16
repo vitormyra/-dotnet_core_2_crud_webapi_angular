@@ -1,0 +1,29 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div style="margin-top:200px;">
+<h2>Usuários</h2>
+
+  <table class="responsive-table striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Senha</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Gerenciar</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usuario">
+          <th scope="row">{{user.usuarioId}}</th>
+          <th>{{ user.nome }}</th>
+          <th>{{ user.senha }}</th>
+          <th>{{ user.email }}</th>
+          <th><button class="btn btn-outline-danger" (click)="ApagarUsuario(user)"><i class="material-icons">delete_forever</i></button></th>
+          <th><button class="btn btn-outline-danger" (click)="AtualizarUsuario(user)"><i class="material-icons">update</i></button></th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
